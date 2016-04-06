@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block head %}
+<li><a href="/register">Register</a></li>
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col s12 m6 l6 offset-m6 offset-l6">
+    {% if msg %}
+      <h5>{{msg}}</h5>
+    {% endif %}
+    {% if form.errors %}
+    <h5>Username or password incorrect </h5>
+    {% endif %}
+
+    <form method="post" action=".">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="col s12">
+          <p> <label for="id_username">Username</label></p>
+          {{form.username}}
+        </div>
+
+        <div class="col s12">
+          <p> <label for="id_password">Password</label></p>
+          {{form.password}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          {% if next %}
+          <input type="hidden" name ="next" value="{{next}}">
+          {% else %}
+          <input type ="hidden" name ="next" value = "/hunt">
+          {% endif %}
+
+          <button class="button wide" type="submit" value="login">Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

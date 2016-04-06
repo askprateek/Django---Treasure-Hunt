@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+ <html>
+   <head>
+     <title>My Project</title>
+     <!--Import Google Icon Font-->
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+     <!--Import materialize.css | Add links to other css files after next line -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+     <link rel="stylesheet" href="{%static 'css/style.css'%}">
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+
+   <body>
+     <header>
+     <nav>
+       <div class="nav-wrapper">
+         <a href ="/" class="brand-logo left thin">Shougo Makishima</a>
+         <ul id="nav-mobile" class="right">
+           {% block head %}
+           {% endblock %}
+         </ul>
+       </div>
+     </nav>
+   </header>
+   <main>
+     <div class="container">
+     {% block content %}
+
+     {% endblock %}
+   </div>
+ </main>
+   <footer class="page-footer">
+     <div class="row footer-copyright">
+       <div class="col s12 right-align">
+         <p>Designed by <b>Digital Artist Prateek</b></p>
+       </div>
+     </div>
+   </footer>
+
+     <!--Import jQuery before materialize.js-->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+   </body>
+ </html>
